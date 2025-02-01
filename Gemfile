@@ -56,8 +56,12 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem 'faker'
+
 gem "tailwindcss-ruby", "~> 4.0"
 
 gem "tailwindcss-rails", "~> 3.3"
 
 gem "devise", "~> 4.9"
+
+gem 'pagy', '~> 9.3' # omit patch digit

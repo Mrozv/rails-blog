@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
+    include Pagy::Backend
+
     def index
-        @blog_posts = BlogPost.all.sort {|a, b| b.created_at <=> a.created_at}
+        @pagy, @blog_posts = pagy(BlogPost.order(created_at: :desc))
+    rescue Pagy::OverflowError
+        redirect_to root_path(page: 1)
     end
 end
