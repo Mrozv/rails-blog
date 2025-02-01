@@ -1,0 +1,21 @@
+<%= form_with model: @blog_post, html: { class: "w-full flex flex-col gap-4" } do |form| %>
+    <% if form.object.errors.any? %>
+        <div>
+            <% form.object.errors.full_messages.each do | message | %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+    <% end %>
+
+    <div class="w-full flex flex-col">
+        <%= form.label :title, class:"block mb-2 text-sm font-medium text-gray-900" %>
+        <%= form.text_field :title, class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" %>
+    </div>
+
+    <div class="w-full flex flex-col">
+        <%= form.label :body, class:"block mb-2 text-sm font-medium text-gray-900" %>
+        <%= form.text_area :body, class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" %>
+    </div>
+
+    <%= form.submit "Create Blog Post", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-fit" %>
+<% end %>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= csp_meta_tag %>
+  <%= csrf_meta_tags %>
+  <%= yield :head %>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icon.png" type="image/png">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon.png">
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+
+<body class="bg-gray-50 flex flex-col items-center">
+  <%= render "home/header" %>
+  <% if alert %>
+    <%= render 'layouts/alert'%>
+  <% end %>
+  <% if notice %>
+    <%= render 'layouts/notice'%>
+  <% end %>
+  
+  <main class="flex flex-col w-full container items-center py-4 px-24">
+    <%= yield %>
+  </main>
+</body>
+</html>
