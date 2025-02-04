@@ -1,2 +1,5 @@
-<h1>Edit post blog</h1>
-<%= render partial: "form", locals: {blog_post: @blog_post} %>
+<main class="flex items-center justify-center h-screen">
+    <div class="bg-white rounded-lg shadow border-gray-200 border px-6 py-8 lg:w-[700px]">
+        <%= render partial: "form", locals: {blog_post: @blog_post, form_title: "Update blog post", button_text: "Update"} %>
+    </div>
+</main>

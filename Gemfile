@@ -52,12 +52,13 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "rspec-rails"
   gem "capybara"
   gem "selenium-webdriver"
+  gem "rspec-rails"
+  gem "factory_bot_rails"
 end
 
-gem 'faker'
+gem "faker"
 
 gem "tailwindcss-ruby", "~> 4.0"
 
@@ -65,6 +66,6 @@ gem "tailwindcss-rails", "~> 3.3"
 
 gem "devise", "~> 4.9"
 
-gem 'pagy', '~> 9.3' # omit patch digit
+gem "pagy", "~> 9.3" # omit patch digit
 
-gem 'pg'
+gem "pg"

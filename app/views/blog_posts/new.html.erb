@@ -1,5 +1,5 @@
-<div class="w-full flex flex-col items-center">
-    <span class="text-3xl py-4">New blog post</span>
-
-    <%= render partial: "form", locals: {blog_post: @blog_post} %>
+<main class="flex items-center justify-center h-screen">
+  <div class="bg-white rounded-lg shadow border-gray-200 border px-6 py-8 lg:w-[500px]">
+    <%= render partial: "form", locals: {blog_post: @blog_post, form_title: "Create new post", button_text: "Create"} %>
 </div>
+</main>

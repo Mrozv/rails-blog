@@ -13,17 +13,16 @@
   <%= javascript_importmap_tags %>
 </head>
 
-<body class="bg-gray-50 flex flex-col items-center">
+<body>
   <%= render "home/header" %>
   <% if alert %>
-    <%= render 'layouts/alert'%>
+    <%= render 'layouts/alert' %>
   <% end %>
   <% if notice %>
-    <%= render 'layouts/notice'%>
+    <%= render 'layouts/notice' %>
   <% end %>
   
-  <main class="flex flex-col w-full container items-center py-4 px-24">
-    <%= yield %>
-  </main>
+  <%= yield %>
+
 </body>
 </html>

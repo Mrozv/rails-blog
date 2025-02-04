@@ -1,3 +1,18 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "@hotwired/turbo-rails"
-import "controllers"
+import "@hotwired/turbo-rails";
+import "controllers";
+
+function hideAlertAfterTimeout() {
+  setTimeout(function () {
+    const alert = document.getElementById("alert");
+    if (alert) {
+      alert.style.display = "none";
+    }
+    const notice = document.getElementById("notice");
+    if (notice) {
+      notice.style.display = "none";
+    }
+  }, 5000);
+}
+
+document.addEventListener("turbo:load", hideAlertAfterTimeout);
+document.addEventListener("turbo:render", hideAlertAfterTimeout);
