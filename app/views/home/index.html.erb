@@ -1,6 +1,7 @@
 <main class="w-full flex flex-col items-center">
   <div class="w-1/2 my-12">
-    <% @blog_posts.each do |post| %>
+    <% if @blog_posts != nil %>
+      <% @blog_posts.each do |post| %>
       <div class="w-full flex py-12 px-4 justify-center border-b border-neutral-200">
         <div class="w-full flex gap-2 flex-col">
           <h1 class="text-4xl font-extrabold text-blue-900">
@@ -39,5 +40,8 @@
     <% end %>
 
     <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
-  </main>
-</div>
+    <%else%>
+      <span class="text-3xl pb-4 flex justify-center">No blog posts yet!</span>
+    <%end%>
+  </div>
+</main>
