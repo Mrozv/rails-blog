@@ -5,7 +5,6 @@ class BlogPostsController < ApplicationController
 
 
     def show
-        @blog_post = BlogPost.find(params[:id])
         @comments = @blog_post.comments.includes(:user)
     rescue ActiveRecord::RecordNotFound
         redirect_to root_path

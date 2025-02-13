@@ -15,6 +15,10 @@ class CommentsController < ApplicationController
     redirect_to blog_post_path(params[:blog_post_id]), notice: "Comment was successfully deleted."
   end
 
+  def comment_user
+    @comment_user = User.where(user_id: comment.id).includes(:user)
+  end
+
   private
 
   def set_comment
