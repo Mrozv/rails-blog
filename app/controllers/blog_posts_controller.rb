@@ -1,10 +1,12 @@
 class BlogPostsController < ApplicationController
-    before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-    before_action :authorized_user, only: [:edit, :update, :destroy]
+    before_action :set_blog_post, only: [ :show, :edit, :update, :destroy ]
+    before_action :authenticate_user!, only: [ :new, :create, :edit, :update, :destroy ]
+    before_action :authorized_user, only: [ :edit, :update, :destroy ]
 
 
     def show
+        @blog_post = BlogPost.find(params[:id])
+        @comments = @blog_post.comments.includes(:user)
     rescue ActiveRecord::RecordNotFound
         redirect_to root_path
     end
@@ -16,9 +18,9 @@ class BlogPostsController < ApplicationController
     def create
         @blog_post = current_user.blog_posts.build(blog_post_params)
         if @blog_post.save
-            redirect_to @blog_post, notice: 'Blog post was successfully created.'
+            redirect_to @blog_post, notice: "Blog post was successfully created."
         else
-            render :new, status: :unprocessable_entity, alert: 'There was an error creating the blog post.'
+            render :new, status: :unprocessable_entity, alert: "There was an error creating the blog post."
         end
     end
 
@@ -41,7 +43,7 @@ class BlogPostsController < ApplicationController
     end
 
     private
-    
+
     def blog_post_params
         params.require(:blog_post).permit(:title, :body)
     end
