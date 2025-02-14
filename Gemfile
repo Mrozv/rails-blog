@@ -69,3 +69,5 @@ gem "devise", "~> 4.9"
 gem "pagy", "~> 9.3" # omit patch digit
 
 gem "pg"
+
+gem "ransack"

@@ -1,4 +1,7 @@
-<main class="w-full flex flex-col items-center my-12">
+<div class="w-full flex justify-center items-center py-4">
+  <%= render "home/navbar" %>
+</div>
+<main class="w-full flex flex-col items-center my-4">
   <div class="w-1/2">
     <% if @blog_posts.present? %>
       <% @blog_posts.each do |post| %>
@@ -30,7 +33,7 @@
         </div>
       <% end %>
 
-      <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+      <%== pagy_nav(@pagy) if @pagy && @pagy.pages > 1 %>
     <% else %>
       <span class="text-3xl pb-4 flex justify-center">No blog posts yet!</span>
     <% end %>

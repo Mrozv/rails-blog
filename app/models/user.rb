@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :blog_posts
-  has_many :comments
+  has_many :blog_posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
   # Devise modules
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
